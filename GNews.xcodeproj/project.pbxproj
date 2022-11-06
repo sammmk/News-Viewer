@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		BE0CB10A2917FFB200081BC3 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = BE0CB1092917FFB200081BC3 /* README.md */; };
 		BE7F2F9F2913576C00DB4434 /* GNewsApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = BE7F2F9E2913576C00DB4434 /* GNewsApp.swift */; };
 		BE7F2FA32913576E00DB4434 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE7F2FA22913576E00DB4434 /* Assets.xcassets */; };
 		BE7F2FA62913576E00DB4434 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = BE7F2FA52913576E00DB4434 /* Preview Assets.xcassets */; };
@@ -46,6 +47,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		BE0CB1092917FFB200081BC3 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
 		BE7F2F9B2913576C00DB4434 /* GNews.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = GNews.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		BE7F2F9E2913576C00DB4434 /* GNewsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GNewsApp.swift; sourceTree = "<group>"; };
 		BE7F2FA22913576E00DB4434 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -98,6 +100,7 @@
 		BE7F2F922913576C00DB4434 = {
 			isa = PBXGroup;
 			children = (
+				BE0CB1092917FFB200081BC3 /* README.md */,
 				BE7F2F9D2913576C00DB4434 /* GNews */,
 				BE7F2FAE2913576E00DB4434 /* GNewsTests */,
 				BE7F2FB82913576E00DB4434 /* GNewsUITests */,
@@ -352,6 +355,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BE0CB10A2917FFB200081BC3 /* README.md in Resources */,
 				BE7F2FA62913576E00DB4434 /* Preview Assets.xcassets in Resources */,
 				BE7F2FA32913576E00DB4434 /* Assets.xcassets in Resources */,
 			);
