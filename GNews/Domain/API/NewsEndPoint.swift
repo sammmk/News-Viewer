@@ -78,6 +78,7 @@ extension NewsAPI: APIBuilderProtocol {
     var newsDate: String {
         let date = Date()
         let dateFormatter = DateFormatter()
+        dateFormatter.timeZone = TimeZone(identifier: "America/Los_Angeles")
         dateFormatter.dateFormat = "YYYY-MM-dd"
         return dateFormatter.string(from: date)
     }
