@@ -26,7 +26,7 @@ struct NewsItemView: View {
     ///
     var body: some View {
         ///
-        HStack {
+        VStack(alignment: .center) {
             if let imageUrl = article.urlToImage,
                let url = URL(string: imageUrl) {
                 /// Image for the news item
@@ -42,7 +42,6 @@ struct NewsItemView: View {
                 } content: { image in
                     image
                         .resizable()
-                        .frame(width: 100, height: 100)
                         .aspectRatio(contentMode: .fit)
                         .cornerRadius(10)
                 }
@@ -57,16 +56,31 @@ struct NewsItemView: View {
             }
             ///
             VStack(alignment: .leading, spacing: 4) {
-                /// Title of the News article
-                Text(article.title)
-                    .foregroundColor(.black)
-                    .font(.system(size: 18, weight: .semibold))
                 /// Source of the News article
                 Text(article.source.name)
                     .foregroundColor(.gray)
                     .font(.footnote)
+                    .multilineTextAlignment(.leading)
+                /// Title of the News article
+                Text(article.title)
+                    .foregroundColor(.black)
+                    .font(.system(size: 18, weight: .semibold))
+                    .multilineTextAlignment(.leading)
+                Text(article.content.dropLast(13))
+                    .foregroundColor(.brown)
+                    .font(.system(size: 16, weight: .regular))
+                    .multilineTextAlignment(.leading)
             }
+            .layoutPriority(100)
+            .padding()
         }
+        .cornerRadius(10)
+        .overlay(
+            RoundedRectangle(cornerRadius: 10)
+                .stroke(Color.blue, lineWidth: 1)
+        )
+        .padding([.top, .horizontal])
+        .listRowSeparator(.hidden, edges: [.bottom])
     }
 }
 ///
