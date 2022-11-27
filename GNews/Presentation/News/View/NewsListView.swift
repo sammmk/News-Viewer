@@ -38,7 +38,7 @@ struct NewsListView: View {
                                     .navigationTitle(Text(item.title))
                                 ) {
                                     GeometryReader { geo in
-                                        Color.yellow
+                                        Color.clear
                                         NewsItemView(article: item)
                                             .rotation3DEffect(
                                                 Angle(degrees: (Double(geo.frame(in: .global).minX)) / -12),
