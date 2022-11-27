@@ -160,7 +160,6 @@
 			children = (
 				BE7F2FDB2917468200DB4434 /* Error */,
 				BE7F2FD82914FAD500DB4434 /* API */,
-				BE7F2FD529135D7300DB4434 /* ViewModel */,
 				BE7F2FCA291357D200DB4434 /* Model */,
 			);
 			path = Domain;
@@ -172,14 +171,6 @@
 				BE7F2FD229135D3200DB4434 /* News.swift */,
 			);
 			path = Model;
-			sourceTree = "<group>";
-		};
-		BE7F2FD529135D7300DB4434 /* ViewModel */ = {
-			isa = PBXGroup;
-			children = (
-				BE7F2FE12917579F00DB4434 /* ResultState.swift */,
-			);
-			path = ViewModel;
 			sourceTree = "<group>";
 		};
 		BE7F2FD82914FAD500DB4434 /* API */ = {
@@ -231,6 +222,7 @@
 			isa = PBXGroup;
 			children = (
 				BE7F2FDF2917564D00DB4434 /* NewsViewModel.swift */,
+				BE7F2FE12917579F00DB4434 /* ResultState.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
