@@ -5,7 +5,6 @@
 //  Created by Mohan Kurera on 2022/11/03.
 //
 import SwiftUI
-import Combine
 ///
 // MARK: -------------------------
 ///
@@ -16,7 +15,7 @@ struct NewsListView: View {
     // MARK: ------------------------- Properties
     ///
     ///
-    @StateObject var viewModel = NewsViewModel(service: NewsService())
+    @StateObject var viewModel = NewsViewModel()
     ///
     // MARK: ------------------------- View
     ///
@@ -28,7 +27,7 @@ struct NewsListView: View {
             case .loading:
                 ProgressView()
             case .failure(let error):
-                ErrorView(error: error, handler: viewModel.getArticles)
+                ErrorView(error: error, handler: { Task { await viewModel.getArticles() } })
             case .success(let articles):
                 NavigationView {
                     ScrollView(.horizontal, showsIndicators: false) {
@@ -54,7 +53,7 @@ struct NewsListView: View {
                 }
             }
         }
-        .onAppear(perform: viewModel.getArticles)
+        .task { await viewModel.getArticles() }
     }
 }
 ///

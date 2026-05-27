@@ -5,59 +5,35 @@
 //  Created by Mohan Kurera on 2022/11/06.
 //
 import Foundation
-import Combine
-///
-// MARK: ------------------------- NewsViewModelProtocol
-///
-///
-///
-protocol NewsViewModelProtocol {
-    func getArticles()
-}
 ///
 // MARK: ------------------------- NewsViewModel
 ///
 ///
 ///
-class NewsViewModel: ObservableObject, NewsViewModelProtocol {
+@MainActor
+class NewsViewModel: ObservableObject {
     ///
-    // MARK: ------------------------- properties
+    // MARK: ------------------------- Properties
     ///
-    ///
-    ///
-    private let service: NewsServiceProtocol
+    private let getNewsUseCase: GetNewsUseCaseProtocol
     private(set) var articles = [Article]()
-    private var cancellables = Set<AnyCancellable>()
     ///
     @Published private(set) var state: ResultState = .loading
     ///
-    // MARK: -------------------------　Life cycle
+    // MARK: ------------------------- Life cycle
     ///
-    ///
-    ///
-    init(service: NewsServiceProtocol) {
-        self.service = service
+    init(getNewsUseCase: GetNewsUseCaseProtocol = GetNewsUseCase()) {
+        self.getNewsUseCase = getNewsUseCase
     }
     ///
-    ///
-    ///
-    func getArticles() {
-        self.state = .loading
-        
-        let cancellable = service
-            .request(from: .getNews)
-            .sink{ res in
-                switch res {
-                case .finished:
-                    self.state = .success(content: self.articles)
-                    
-                case.failure(let error):
-                    self.state = .failure(error: error)
-                    
-                }
-            } receiveValue: { response in
-                self.articles = response.articles
-            }
-        self.cancellables.insert(cancellable)
+    func getArticles() async {
+        state = .loading
+        do {
+            let fetched = try await getNewsUseCase.execute()
+            articles = fetched
+            state = .success(content: fetched)
+        } catch {
+            state = .failure(error: error)
+        }
     }
 }

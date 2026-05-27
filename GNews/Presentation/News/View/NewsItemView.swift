@@ -66,7 +66,7 @@ struct NewsItemView: View {
                     .foregroundColor(.black)
                     .font(.system(size: 18, weight: .semibold))
                     .multilineTextAlignment(.leading)
-                Text(article.content.dropLast(13))
+                Text((article.content ?? "").dropLast(13))
                     .foregroundColor(.brown)
                     .font(.system(size: 16, weight: .regular))
                     .multilineTextAlignment(.leading)
